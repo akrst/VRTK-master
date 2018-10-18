@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class CanvasRotate : MonoBehaviour {
     private GameObject camera;
+    private GameObject canvasPoint;
     
 	// Use this for initialization
 	void Start () {
+	    canvasPoint = GameObject.Find("CanvasPoint");
+	    Debug.Log(canvasPoint);
 		camera = GameObject.FindGameObjectWithTag("MainCamera");
 	}
 	
 	// Update is called once per frame
 	void Update () {
+	    Vector3 canvasPointPosition = canvasPoint.transform.position;
+	    // transform.position = canvasPointPosition;
+	    transform.position = Vector3.Lerp(transform.position, canvasPointPosition, 6.0f *Time.deltaTime);
 	    Vector3 p = camera.transform.position;
-	    p.y = transform.position.y;
+	    // p.y = transform.position.y;
 	    transform.LookAt(p);
+
 	    
 	    
 	    /*

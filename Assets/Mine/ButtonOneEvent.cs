@@ -23,9 +23,9 @@ public class ButtonOneEvent: MonoBehaviour {
     void ButtonOnePressedHandler(object sender, ControllerInteractionEventArgs e) {
         GameObject parent = GameObject.Find("CanvasManager");
         GameObject canvas = parent.transform.Find("Canvas").gameObject;
-        GameObject camera = GameObject.FindGameObjectWithTag("MainCamera");
-        Vector3 t = camera.transform.position;
-        t += new Vector3(0.0f, 1.0f, 2.0f);
+        GameObject canvasPoint = GameObject.Find("CanvasPoint");
+        Vector3 t = canvasPoint.transform.position;
+        //t += new Vector3(0.0f, 1.0f, 2.0f);
 
         if (canvas.activeSelf == false) {
             canvas.SetActive(true);
